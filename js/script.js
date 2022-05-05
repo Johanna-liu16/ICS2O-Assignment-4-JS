@@ -15,18 +15,48 @@ if (navigator.serviceWorker) {
 
 ;("use strict")
 /**
- * This function calculates area of a parrallelogram.
+ * Input
  */
-function calculate() {
-  // input
-  const length = parseInt(document.getElementById("length-of-pyramid").value)
-  const width = parseInt(document.getElementById("width-of-pyramid").value)
-  const height = parseInt(document.getElementById("height-of-pyramid").value)
+function myButtonClicked() {
+  const largePizza = document.getElementById("largePizza").checked;
+  const xLargePizza = document.getElementById("xLargePizza".checked);
+  const t1 = document.getElementById("t1").checked);
+  const t2 = document.getElementById("t2").checked;
+  const t3 = document.getElementById("t3").checked;
+  const t4 = document.getElementById("t4").checked;
+    
+  var sizePrice = 0
+  var toppingPrice = 0
+  var tax
+  var price
 
-  // process
-  const volume = (length * width * height) / 3
+    if (largePizza.checked == true){
+        sizePrice = 6.0
+        document.getElementById("largePizza").innerHTML = "Large"
+    } else {
+        sizePrice = 10.0
+        document.getElementById("largePizza").innerHTML = "Extra large"
+    }
 
-  // output
-  document.getElementById("answers").innerHTML =
-    "Volume is: " + volume.toFixed(2) + " cm³"
+    if (t1 == true) {
+        toppingPrice = 1.0;
+        document.getElementById("t1").innerHTML = "Topping 1"
+    } else if (t2 == true) {
+        toppingPrice = 1.75;
+        document.getElementById("t2").innerHTML = "Topping 2"
+    } else if (t3 == true) {
+        toppingPrice = 2.5;
+        document.getElementById("t3").innerHTML = "Topping 3"
+    } else {
+        toppingPrice = 3.35;
+        document.getElementById("t4").innerHTML = "Topping 4"
+    }
+
+    //output
+    tax = (sizePrice + toppingPrice) * 0.13;
+    price = tax + (sizePrice + toppingPrice);
+    
+    document.getElementById("answers").innerHTML =
+      "Your pizza will be $" + price.toFixed(2);
+  }
 }
