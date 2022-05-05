@@ -7,7 +7,7 @@
 /**
  * Check servie worker.
  */
-if (navigator.serviceWorker) {
+ if (navigator.serviceWorker) {
   navigator.serviceWorker.register("/ICS2O-PWA-Test/sw.js", {
     scope: "/ICS2O-PWA-Test/",
   })
@@ -57,6 +57,6 @@ function myButtonClicked() {
     price = tax + (sizePrice + toppingPrice);
     
     document.getElementById("answers").innerHTML =
-      "Your pizza will be $" + price.toFixed(2);
+      "Your pizza will be $" + price.toFixed(2) + ".";
   }
 }
